@@ -142,7 +142,7 @@ if (!isset($_POST['submit'])) {
             $aspect = $row['Aspect'];
             
             // Output data into table
-            echo "	<tr>
+            echo "  <tr>
                         <td>$id</td>
                         <td>$title</td>
                         <td>$studio</td>
