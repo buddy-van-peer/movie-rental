@@ -28,7 +28,7 @@ if (!isset($_POST['submit'])) {
     // Get connection script
     include"connect.php";
     
-	// Start of the SELECT (Search_ query
+	// Start of the SELECT (Search) query
     $qry = "SELECT * FROM dvd WHERE ";
     
 	// Variables for textboxes
@@ -40,16 +40,16 @@ if (!isset($_POST['submit'])) {
 	// String to SET the search count of each movie
     $setCount = "";
     
-    // Variable to check if a textbox is the first one with an input and
-    // therefore doesn't need an AND in the SQL query
+    /* Variable to check if a textbox is the first one with an input and
+	 * therefore doesn't need an AND in the SQL query */
     $isFirstTextBox = true;
     
-	// Variable to check if all textboxes are empty and therefore skip an
-    // if-else statement    
+	/* Variable to check if all textboxes are empty and therefore skip an
+     * if-else statement */  
     $isEmpty = false;	
     
-    // If textbox isn't empty then assign variable and 
-    // append relevant SQL statement to $qry
+    /* If textbox isn't empty then assign variable and 
+     * append relevant SQL statement to $qry */
     if (!empty($_POST['title'])) {
         $title = $_POST['title'];
 

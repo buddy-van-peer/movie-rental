@@ -5,10 +5,8 @@
 </head>
 <body>
 
-<?php
-	//require("connect.php");
-	
-	// Coonect to database
+<?php	
+	// Connect to database
 	$conn = mysqli_connect("localhost", "root", "usbw", "movierental");
 	
 	// Statement to check top 10 movie searches
@@ -23,8 +21,7 @@
 	echo "<h2>Top Searched Movies</h2>";
 	
 	// Puts top 10 movie searches in an array
-	for ($i = 1; $i < 11; $i++)
-	{
+	for ($i = 1; $i < 11; $i++) {
 		$row = mysqli_fetch_assoc($result);
 		$name[$i] = "{$row['Title']}";
 		$list[$i] = "{$row['Count']}";
