@@ -22,29 +22,29 @@ if (!isset($_POST['submit'])) {
 
     <?php
     
-	// Homepage link
+    // Homepage link
     echo "<p><a href='Index.php'>Home</a></p>";
 } else {
     // Get connection script
     include"connect.php";
     
-	// Start of the SELECT (Search) query
+    // Start of the SELECT (Search) query
     $qry = "SELECT * FROM dvd WHERE ";
     
-	// Variables for textboxes
+    // Variables for textboxes
     $title;
     $genre;
     $rating;
     $year;
     
-	// String to SET the search count of each movie
+    // String to SET the search count of each movie
     $setCount = "";
     
     /* Variable to check if a textbox is the first one with an input and
-	 * therefore doesn't need an AND in the SQL query */
+     * therefore doesn't need an AND in the SQL query */
     $isFirstTextBox = true;
     
-	/* Variable to check if all textboxes are empty and therefore skip an
+    /* Variable to check if all textboxes are empty and therefore skip an
      * if-else statement */  
     $isEmpty = false;	
     
@@ -102,7 +102,7 @@ if (!isset($_POST['submit'])) {
     
     $result = $conn->query($qry);
     
-	// Checks if title textbox has been filled before running statement
+    // Checks if title textbox has been filled before running statement
 	if ($setCount != "") {
 		$conn->query($setCount);
 	}
@@ -113,19 +113,19 @@ if (!isset($_POST['submit'])) {
         
         // Create a table
         echo "<table border = '1'>";
-        echo "	<tr>
+        echo " <tr>
                     <th>ID</th>
-					<th>Title</th>
-					<th>Studio</th>
-					<th>Status</th>
-					<th>Sound</th>
-					<th>Versions</th>
-					<th>RecRetPrice</th>
-					<th>Rating</th>
-					<th>Year</th>
-					<th>Genre</th>
-					<th>Aspect</th>
-				</tr>";
+                    <th>Title</th>
+                    <th>Studio</th>
+                    <th>Status</th>
+                    <th>Sound</th>
+                    <th>Versions</th>
+                    <th>RecRetPrice</th>
+                    <th>Rating</th>
+                    <th>Year</th>
+                    <th>Genre</th>
+                    <th>Aspect</th>
+                </tr>";
         
         // Assign variables
         while ($row = $result->fetch_assoc()) {
@@ -144,24 +144,24 @@ if (!isset($_POST['submit'])) {
             // Output data into table
             echo "	<tr>
                         <td>$id</td>
-						<td>$title</td>
-						<td>$studio</td>
-						<td>$status</td>
-						<td>$sound</td>
-						<td>$versions</td>
-						<td>$recRetPrice</td>
-						<td>$rating</td>
-						<td>$year</td>
-						<td>$genre</td>
-						<td>$aspect</td>
-					</tr>";
+                        <td>$title</td>
+                        <td>$studio</td>
+                        <td>$status</td>
+                        <td>$sound</td>
+                        <td>$versions</td>
+                        <td>$recRetPrice</td>
+                        <td>$rating</td>
+                        <td>$year</td>
+                        <td>$genre</td>
+                        <td>$aspect</td>
+                    </tr>";
         }        
         echo "</table>";
     } else if (!$isEmpty) {
         echo "<h2>Search Results</h2>";
         echo "No movie found.";
     }
-	// Other page links
+    // Other page links
     echo "<p><a href='Index.php'>Home</a></p>";
     echo "<p><a href='Search.php'>Search Again</a></p>";
     echo "<p><a href='TopSearched.php'>Top Searched Movies</a></p>";
